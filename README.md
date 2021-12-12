@@ -1,2 +1,2 @@
-# Entrega1-JoaquinRudin
-Proyecto CoderHouse
+# Proyecto Coder Django
+Entregable proyecto final para el curso de Python
