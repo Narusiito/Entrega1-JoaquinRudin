@@ -1,17 +1,26 @@
-from django.http import HttpResponse
+from pokedex.models import Pokemon
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("Vista principal.")
+    return render(request, "pokedex/inicio.html")
 
 
 def pokemon(request):
-    return HttpResponse("Vista Pokemon.")
+    if request.method == 'POST':
+        pokemon = Pokemon(
+            numero=request.POST['numero'], nombre=request.POST['nombre'], tipo=request.POST['tipo'])
+
+        pokemon.save()
+
+        return render(request, "pokedex/inicio.html")
+
+    return render(request, "pokedex/pokemon.html")
 
 
 def entrenador(request):
-    return HttpResponse("Vista Entrenador.")
+    return render(request, "pokedex/entrenador.html")
 
 
 def pokeball(request):
-    return HttpResponse("Vista Pokeball.")
+    return render(request, "pokedex/pokeball.html")

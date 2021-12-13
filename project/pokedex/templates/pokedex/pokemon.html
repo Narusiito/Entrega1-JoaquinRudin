@@ -1,0 +1,49 @@
+{% extends "pokedex/inicio.html" %}
+
+{% load static %}
+
+{% block formulario %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4>Ingresar Pokemon</h4>
+            <form action="/pokedex/pokemon/" method="POST">{% csrf_token %}
+                <!-- MODEL FORM -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Pikachu" name="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="numero" class="form-label">Numero</label>
+                    <input type="number" class="form-control" id="numero" name="numero">
+                </div>
+                <div class="mb-3">
+                    <label for="tipo" class="form-label">Tipo</label>
+                    <input type="text" class="form-control" id="tipo" name="tipo">
+                </div>
+
+                <button class="btn btn-primary" type="submit" value="Enviar">Enviar</button>
+            </form>
+        </div>
+        <div class="col">
+            <h4>Buscar Por:</h4>
+            <form>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Pikachu" aria-label="nombre pokemon"
+                            aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button">🔍
+
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
