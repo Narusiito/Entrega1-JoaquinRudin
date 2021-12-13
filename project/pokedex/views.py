@@ -1,3 +1,17 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def index(request):
+    return HttpResponse("Vista principal.")
+
+
+def pokemon(request):
+    return HttpResponse("Vista Pokemon.")
+
+
+def entrenador(request):
+    return HttpResponse("Vista Entrenador.")
+
+
+def pokeball(request):
+    return HttpResponse("Vista Pokeball.")
