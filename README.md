@@ -8,6 +8,12 @@ Clonar el repositorio
 
 Entrar a la carpeta project
 
+Crear las tablas
+
+`python manage.py makemigrations pokedex`
+
+`python manage.py migrate`
+
 Correr el servidor
 
 `python manage.py runserver`
