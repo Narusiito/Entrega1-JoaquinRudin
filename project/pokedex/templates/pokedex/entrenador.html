@@ -7,35 +7,32 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h4>Ingresar Pokemon</h4>
-            <form action="/pokedex/pokemon/" method="POST">{% csrf_token %}
+            <h4>Ingresar Entrenador</h4>
+            <form action="/pokedex/entrenador/" method="POST">{% csrf_token %}
                 <!-- MODEL FORM -->
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Pikachu" name="nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Ash" name="nombre">
                 </div>
                 <div class="mb-3">
-                    <label for="numero" class="form-label">Numero</label>
-                    <input type="number" class="form-control" id="numero" name="numero">
+                    <label for="edad" class="form-label">Edad</label>
+                    <input type="number" class="form-control" id="edad" name="edad">
                 </div>
-                <div class="mb-3">
-                    <label for="tipo" class="form-label">Tipo</label>
-                    <input type="text" class="form-control" id="tipo" name="tipo">
-                </div>
+                
 
                 <button class="btn btn-primary" type="submit" value="Enviar">Enviar</button>
             </form>
         </div>
         <div class="col">
             <h4>Buscar Por:</h4>
-            <form action="/pokedex/buscarPokemon/" method="GET">
+            <form action="/pokedex/buscarEntrenador/" method="GET">
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Pikachu" name="nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Ash" name="nombre">
                 </div>
                 <button class="btn btn-primary" type="submit" value="Buscar">Buscar</button>
             </form>
-            {% if pokemons %}
+            {% if entrenadores %}
             <table class="table">
                 <thead>
                     <tr>
@@ -44,10 +41,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for pokemon in pokemons %}
+                    {% for entrenador in entrenadores %}
                     <tr>
-                        <td scope="row">{{ pokemon.0 }}</td>
-                        <td>{{ pokemon.nombre }}</td>
+                        <td scope="row">{{ entrenador.0 }}</td>
+                        <td>{{ entrenador.nombre }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
